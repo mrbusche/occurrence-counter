@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Occurrence Counter</title>
+		<meta name="description" content="Occurrence Counter">
+		<meta name="author" content="Matt Busche">
+	</head>
+
+	<body>
+		<table>
+		<tr>
+			<td>
+				<textarea id="data" rows="25"></textarea><br>
+				<button onclick="calculate();">Calculate</button>
+			</td>
+			<td><div id="results"></div></td>
+		</tr>
+
+		<script type="text/javascript">
+			function calculate() {
+				var list = document.getElementById('data').value.split('\n')
+				var countedItems = {};
+				for (var item in list) {
+					countedItems[list[item]] = (countedItems[list[item]] || 0) + 1;
+				}
+				var result = '';
+				for (var i in countedItems) {
+					result += i + ' - ' + countedItems[i] + '<br>';
+				}
+				document.getElementById('results').innerHTML = result;
+			}
+		</script>
+	</body>
+</html>
