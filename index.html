@@ -12,8 +12,7 @@
 		<table>
 		<tr>
 			<td>
-				<textarea id="data" rows="25"></textarea><br>
-				<button onclick="calculate();">Calculate</button>
+				<textarea id="data" rows="25"></textarea>
 			</td>
 			<td id="results"></td>
 		</tr>
@@ -31,6 +30,10 @@
 				}
 				document.getElementById('results').innerHTML = result;
 			}
+
+			document.querySelector('#data').addEventListener('keyup', function() {
+				calculate();
+			});
 		</script>
 	</body>
 </html>
