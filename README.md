@@ -6,3 +6,5 @@ To use
 2. Open file in browser i.e. file:///C:/Users/Busche/code/occurrenceCounter/index.html
 3. Add data to textarea
 4. View results
+
+Online version https://matthewbusche.com/p/oc/
