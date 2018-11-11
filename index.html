@@ -1,66 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Occurrence Counter</title>
-		<meta name="description" content="Occurrence Counter">
-		<meta name="author" content="Matt Busche">
-		<style type="text/css">
-			#wrapper {
-			  display: flex;
-			}
-			#one {
-			  flex: 0 0 25%;
-			}
-			#results {
-			  flex: 1;
-			}
-		</style>
-	</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Occurrence Counter" />
+    <meta name="author" content="Matt Busche" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link
+      href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <title>Occurrence Counter</title>
+  </head>
 
-	<body>
-		<h1>Occurrence Counter</h1>
-		<h5>Supports return, pipe, or comma delimited lists</h5>
-		<div id="wrapper">
-			<div id="one">
-				<textarea id="data" rows="25"></textarea>
-			</div>
-			<div id="results"></div>
-		</div>
+  <body>
+    <div class="container-fluid">
+      <h1>Occurrence Counter</h1>
+      <h5>Supports return, pipe, or comma delimited lists</h5>
+      <div class="row justify-content-center">
+        <div id="one" class="col-4"><textarea id="data" rows="25" autofocus></textarea></div>
+        <div id="results" class="col-8"></div>
+      </div>
+    </div>
 
-		<script type="text/javascript">
-			function calculate() {
-				const data = document.getElementById('data').value;
-				const list = data.split(determineDelimiter(data));
+    <script type="text/javascript">
+      function calculate() {
+        const data = document.getElementById('data').value;
+        const list = data.split(determineDelimiter(data));
 
-				const countedItems = {};
-				for (const item in list) {
-					countedItems[list[item]] = (countedItems[list[item]] || 0) + 1;
-				}
+        const countedItems = {};
+        for (const item in list) {
+          countedItems[list[item]] = (countedItems[list[item]] || 0) + 1;
+        }
 
-				let result = '';
-				for (const i in countedItems) {
-					result += i + ' - ' + countedItems[i] + '<br>';
-				}
-				document.getElementById('results').innerHTML = result;
-			}
+        let result = '';
+        for (const i in countedItems) {
+          result += i + ' - ' + countedItems[i] + '<br>';
+        }
+        document.getElementById('results').innerHTML = result;
+      }
 
-			function determineDelimiter(data) {
-				const returnCount = data.split('\n').length;
-				const commaCount = data.split(',').length;
-				const pipeCount = data.split('|').length;
+      function determineDelimiter(data) {
+        const returnCount = data.split('\n').length;
+        const commaCount = data.split(',').length;
+        const pipeCount = data.split('|').length;
 
-				if (returnCount > commaCount && returnCount > pipeCount) {
-					return '\n';
-				} else if (commaCount > pipeCount) {
-					return ',';
-				}
-				return '|';
-			}
+        if (returnCount > commaCount && returnCount > pipeCount) {
+          return '\n';
+        } else if (commaCount > pipeCount) {
+          return ',';
+        }
+        return '|';
+      }
 
-			document.getElementById('data').addEventListener('keyup', function() {
-				calculate();
-			});
-		</script>
-	</body>
+      document.getElementById('data').addEventListener('keyup', function() {
+        calculate();
+      });
+    </script>
+  </body>
 </html>
