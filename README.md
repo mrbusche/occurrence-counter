@@ -7,4 +7,4 @@ To use
 3. Add data to textarea
 4. View results
 
-Online version https://matthewbusche.com/oc/
+Online version https://www.occurrencecounter.com/
