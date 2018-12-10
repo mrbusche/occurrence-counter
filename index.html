@@ -6,12 +6,75 @@
     <meta name="description" content="Occurrence Counter" />
     <meta name="author" content="Matt Busche" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link
-      href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous"
-    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-family: sans-serif;
+        line-height: 1.15;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        -ms-overflow-style: scrollbar;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
+          'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        text-align: left;
+        background-color: #fff;
+      }
+
+      [tabindex='-1']:focus {
+        outline: 0 !important;
+      }
+
+      img {
+        vertical-align: middle;
+        border-style: none;
+      }
+
+      textarea {
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        overflow: auto;
+        resize: vertical;
+      }
+
+      h1,
+      h5 {
+        margin-bottom: 0.5rem;
+        margin-top: 0;
+        font-family: inherit;
+        font-weight: 500;
+        line-height: 1.2;
+        color: inherit;
+        font-size: 2.5rem;
+      }
+
+      h5 {
+        font-size: 1.25rem;
+      }
+
+      .container-fluid {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    </style>
     <title>Occurrence Counter</title>
   </head>
 
@@ -33,7 +96,15 @@
       /></a>
     </footer>
 
-    <script type="text/javascript">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130707543-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-130707543-1');
       function calculate() {
         const data = document.getElementById('data').value;
         const list = data.split(determineDelimiter(data));
