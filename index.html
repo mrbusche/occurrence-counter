@@ -152,9 +152,10 @@
       data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAAe1BMVEX///8WFBUUEhMLCQoHBAYAAAAQDQ8iICG0srOFg4RoZ2dxcHAvLS75+fn29vaCgIFfXV5GREUtKywpJyj8/PzPzs6TkpJjY2NYV1dMS0sZFxjn5+fd3d3Z2NjV1NXGxsbGxca6ubqwsLA0MzQdGx2cnJx7enp3dnZvbm+Alsl1AAAA0ElEQVQY013O13KDMBBA0a2SAAE2mOpeUv7/C7NDNFYm5/GupBVsmjBFxDiFBt6CZyZEYvYBklIdJk7L1ISIkQwykWw1KM/nSsV70eo8swbb4Z2M8DaK8w08GKXKsRLkB+yY1iHHYSXeQUduD3/sHXWAaJPMbiJa/H/SYiTq6tzqjihCySRFjgUjl3AX/9TieABzOBZCyHeA/jVMSovVelmtud7GV33B3I/p50h6BdPqN/yuahlJ2vS49svHFsXlpZeoX2A+9XmB7HYCc7rB5geYUQlDWYO9BgAAAABJRU5ErkJggg=="
       /></a>
     </footer>
-
+    <script src="https://browser.sentry-cdn.com/4.4.1/bundle.min.js" crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130707543-1"></script>
     <script>
+      Sentry.init({ dsn: 'https://54a06dc4d7d74d17912ba1fea92f5ce4@sentry.io/1341510' });
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
