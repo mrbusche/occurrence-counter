@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="Occurrence Counter" />
     <meta name="author" content="Matt Busche" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <style>
       *,
       *::before,
@@ -44,8 +47,9 @@
       }
       body {
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
-          'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+          "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         font-size: 1rem;
         font-weight: 400;
         line-height: 1.5;
@@ -54,7 +58,7 @@
         background-color: #fff;
       }
 
-      [tabindex='-1']:focus {
+      [tabindex="-1"]:focus {
         outline: 0 !important;
       }
 
@@ -126,6 +130,9 @@
         flex: 0 0 66.666667%;
         max-width: 66.666667%;
       }
+      label textarea {
+        vertical-align: top;
+      }
     </style>
     <title>Occurrence Counter</title>
   </head>
@@ -135,7 +142,11 @@
       <h1>Occurrence Counter</h1>
       <h5>Supports return, pipe, or comma delimited lists</h5>
       <div class="row justify-content-center">
-        <div id="one" class="col-4"><textarea id="data" rows="25" autofocus></textarea></div>
+        <div id="one" class="col-4">
+          <label for="data">Data<br />
+            <textarea id="data" rows="25" autofocus></textarea>
+          </label>
+        </div>
         <div id="results" class="col-8"></div>
       </div>
     </div>
@@ -145,26 +156,28 @@
       <a href="https://twitter.com/mrbusche" target="_blank" rel="noopener">
         <img
           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAAS1BMVEUdofL///8aoPEKmfEVnvERnPEDlvDx+f6n2vpcvPWAyvdEsfTj8/3d8P3a7/zD5vu74/ut3fqg1/mS0fiGzPh8yPdRt/QyqfMAlPCGNm7pAAAAcklEQVQY063Oyw7DMAhEUWDAsZO+3///pW2RmHTf3IUXR9YI2S4z+ckt3+YtgjZgn3dRnca1FLsD4NBvp9pAV72JJ3I3hrJXbeJM24On4Fg4h1TohbD1aPQpbQmayHNOe0CIfs9/Fw9Zs0AzNO7RjfJ/b/csAlhCi+ExAAAAAElFTkSuQmCC"
+          alt="twitter"
       /></a>
       <a href="https://github.com/mrbusche/occurrenceCounter" target="_blank" rel="noopener">
         <img
           src="
       data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAAe1BMVEX///8WFBUUEhMLCQoHBAYAAAAQDQ8iICG0srOFg4RoZ2dxcHAvLS75+fn29vaCgIFfXV5GREUtKywpJyj8/PzPzs6TkpJjY2NYV1dMS0sZFxjn5+fd3d3Z2NjV1NXGxsbGxca6ubqwsLA0MzQdGx2cnJx7enp3dnZvbm+Alsl1AAAA0ElEQVQY013O13KDMBBA0a2SAAE2mOpeUv7/C7NDNFYm5/GupBVsmjBFxDiFBt6CZyZEYvYBklIdJk7L1ISIkQwykWw1KM/nSsV70eo8swbb4Z2M8DaK8w08GKXKsRLkB+yY1iHHYSXeQUduD3/sHXWAaJPMbiJa/H/SYiTq6tzqjihCySRFjgUjl3AX/9TieABzOBZCyHeA/jVMSovVelmtud7GV33B3I/p50h6BdPqN/yuahlJ2vS49svHFsXlpZeoX2A+9XmB7HYCc7rB5geYUQlDWYO9BgAAAABJRU5ErkJggg=="
+          alt="github"
       /></a>
     </footer>
     <script src="https://browser.sentry-cdn.com/4.4.1/bundle.min.js" crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130707543-1"></script>
     <script>
-      Sentry.init({ dsn: 'https://54a06dc4d7d74d17912ba1fea92f5ce4@sentry.io/1341510' });
+      Sentry.init({ dsn: "https://54a06dc4d7d74d17912ba1fea92f5ce4@sentry.io/1341510" });
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
-      gtag('js', new Date());
+      gtag("js", new Date());
 
-      gtag('config', 'UA-130707543-1');
+      gtag("config", "UA-130707543-1");
       function calculate() {
-        const data = document.getElementById('data').value;
+        const data = document.getElementById("data").value;
         const list = data.split(determineDelimiter(data));
 
         const countedItems = {};
@@ -172,27 +185,27 @@
           countedItems[list[item]] = (countedItems[list[item]] || 0) + 1;
         }
 
-        let result = '';
+        let result = "";
         for (const i in countedItems) {
-          result += i + ' - ' + countedItems[i] + '<br>';
+          result += i + " - " + countedItems[i] + "<br>";
         }
-        document.getElementById('results').innerHTML = result;
+        document.getElementById("results").innerHTML = result;
       }
 
       function determineDelimiter(data) {
-        const returnCount = data.split('\n').length;
-        const commaCount = data.split(',').length;
-        const pipeCount = data.split('|').length;
+        const returnCount = data.split("\n").length;
+        const commaCount = data.split(",").length;
+        const pipeCount = data.split("|").length;
 
         if (returnCount > commaCount && returnCount > pipeCount) {
-          return '\n';
+          return "\n";
         } else if (commaCount > pipeCount) {
-          return ',';
+          return ",";
         }
-        return '|';
+        return "|";
       }
 
-      document.getElementById('data').addEventListener('keyup', function() {
+      document.getElementById("data").addEventListener("keyup", function() {
         calculate();
       });
     </script>
