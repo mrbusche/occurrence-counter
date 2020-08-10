@@ -3,17 +3,17 @@ function calculate() {
   const data = document.getElementById('data').value;
   const list = data.split(determineDelimiter(data));
 
-  const countedItems = {};
+  const countedItems = new Map();
   for (const item in list) {
-    countedItems[list[item]] = (countedItems[list[item]] || 0) + 1;
+    countedItems.set(list[item], (countedItems.get(list[item]) || 0) + 1);
   }
 
   let result = '';
-  for (const i in countedItems) {
-    if (countedItems[i] >= minResults) {
-      result += i + ' - ' + countedItems[i] + '<br>';
+  countedItems.forEach(function (value, key) {
+    if (value >= minResults) {
+      result += key + ' - ' + value + '<br>';
     }
-  }
+  });
   document.getElementById('results').innerHTML = result;
 }
 
