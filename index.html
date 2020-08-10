@@ -24,6 +24,11 @@
       </div>
       <div id="results" class="flex-child right"></div>
     </div>
+    <label for="mincount">
+      Minimum count
+      <input id="minCount" type="text" size="3" value="0">
+    </label>
+    <script src="js/counter.js"></script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130707543-1"></script>
     <script>
@@ -32,52 +37,7 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "UA-130707543-1");
-      function calculate() {
-        const data = document
-          .getElementById("data")
-          .value;
-        const list = data.split(determineDelimiter(data));
-
-        const countedItems = {};
-        for (const item in list) {
-          countedItems[list[item]] = (countedItems[list[item]] || 0) + 1;
-        }
-
-        let result = "";
-        for (const i in countedItems) {
-          result += i + " - " + countedItems[i] + "<br>";
-        }
-        document
-          .getElementById("results")
-          .innerHTML = result;
-      }
-
-      function determineDelimiter(data) {
-        const returnCount = data
-          .split("\n")
-          .length;
-        const commaCount = data
-          .split(",")
-          .length;
-        const pipeCount = data
-          .split("|")
-          .length;
-
-        if (returnCount > commaCount && returnCount > pipeCount) {
-          return "\n";
-        } else if (commaCount > pipeCount) {
-          return ",";
-        }
-        return "|";
-      }
-
-      document
-        .getElementById("data")
-        .addEventListener("keyup", function () {
-          calculate();
-        });
     </script>
   </body>
 </html>
