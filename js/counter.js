@@ -4,9 +4,10 @@ function calculate() {
   const list = data.split(determineDelimiter(data));
 
   const countedItems = new Map();
-  for (const item in list) {
-    countedItems.set(list[item], (countedItems.get(list[item]) || 0) + 1);
-  }
+  list.forEach(function (item, index) {
+    console.log(item);
+    countedItems.set(item, (countedItems.get(item) || 0) + 1);
+  });
 
   let result = '';
   countedItems.forEach(function (value, key) {
