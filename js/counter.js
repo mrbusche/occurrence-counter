@@ -5,12 +5,12 @@ function calculate() {
 
   const countedItems = new Map();
   list.forEach(function (item, index) {
-    console.log(item);
     countedItems.set(item, (countedItems.get(item) || 0) + 1);
   });
+  const sortedMap = new Map([...countedItems.entries()].sort());
 
   let result = '';
-  countedItems.forEach(function (value, key) {
+  sortedMap.forEach(function (value, key) {
     if (value >= minResults) {
       result += key + ' - ' + value + '<br>';
     }
