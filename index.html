@@ -8,6 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <link rel="stylesheet" href="css/styles.css">
     <title>Occurrence Counter</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-02YRXRZNCC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-02YRXRZNCC');
+    </script>
   </head>
 
   <body>
@@ -29,15 +38,5 @@
       <input id="minCount" type="text" size="3" value="0">
     </label>
     <script src="js/counter.js"></script>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130707543-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "UA-130707543-1");
-    </script>
   </body>
 </html>
